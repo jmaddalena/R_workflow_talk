@@ -151,7 +151,6 @@ barplot_data_list <- create_barplot_data(crime_filter = crime_burg,
                                     east = -87.37907,
                                     south = 41.78872,
                                     west = -87.88033)
-
 ```
 
 Barplot using `ggplot2`:
@@ -211,6 +210,10 @@ options(shiny.reactlog = TRUE)
 shiny::showReactLog()
 ```
 
+# Find all files on GitHub 
+
+https://github.com/jmaddalena/R_workflow_talk
+
 # References
 
 https://catalog.data.gov/dataset/crimes-2001-to-present-398a4
@@ -220,4 +223,6 @@ http://adv-r.had.co.nz/Computing-on-the-language.html
 https://shiny.rstudio.com/articles/reactivity-overview.html 
 
 https://shiny.rstudio.com/reference/shiny/latest/showReactLog.html
+
+http://docs.rstudio.com/shinyapps.io/getting-started.html
 

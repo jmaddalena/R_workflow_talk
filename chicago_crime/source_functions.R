@@ -6,9 +6,9 @@ edit_raw_data <- function(raw_data){
            `Location Description`, Latitude, Longitude) %>%
     rename(Crime = `Primary Type`,
            Location = `Location Description`) %>%
-    mutate(datetime = mdy_hms(Date, tz = "America/Chicago"),
-           Location = str_to_title(Location),
-           Description = str_to_title(Description),
+    mutate(datetime = lubridate::mdy_hms(Date, tz = "America/Chicago"),
+           Location = stringr::str_to_title(Location),
+           Description = stringr::str_to_title(Description),
            Crime = str_to_title(Crime),
            Arrest = case_when(Arrest == "true" ~ "Arrest made",
                               Arrest == "false" ~ "No arrest made"),
@@ -153,23 +153,23 @@ get_top5_vals <- function(crime_subset){
   top5_locs
 }
 
-get_num_subclass <- function(crime_dat){
-  main_crimes <- unique(crime_dat$Crime)
-  
-  purrr::map_df(main_crimes, function(crime){
-    crime_sub <- crime_dat %>%
-      filter(Crime == crime)
-    num_desc <- crime_sub %>% 
-      pull(Description) %>% 
-      unique %>% 
-      length
-    num_locs <- crime_sub %>% 
-      pull(Location) %>% 
-      unique %>% length
-    data.frame("Crime" = crime, "Num_desc" = num_desc, "Num_locs" = num_locs)
-  })
-  
-}
+# get_num_subclass <- function(crime_dat){
+#   main_crimes <- unique(crime_dat$Crime)
+#   
+#   purrr::map_df(main_crimes, function(crime){
+#     crime_sub <- crime_dat %>%
+#       filter(Crime == crime)
+#     num_desc <- crime_sub %>% 
+#       pull(Description) %>% 
+#       unique %>% 
+#       length
+#     num_locs <- crime_sub %>% 
+#       pull(Location) %>% 
+#       unique %>% length
+#     data.frame("Crime" = crime, "Num_desc" = num_desc, "Num_locs" = num_locs)
+#   })
+#   
+# }
 
 color_palette <- function(n) {
   hues = seq(15, 375, length = n + 1)
