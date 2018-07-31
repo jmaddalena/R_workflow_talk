@@ -226,3 +226,6 @@ https://shiny.rstudio.com/reference/shiny/latest/showReactLog.html
 
 http://docs.rstudio.com/shinyapps.io/getting-started.html
 
+https://ggplot2.tidyverse.org/
+
+https://grunwaldlab.github.io/Population_Genetics_in_R/Getting_ready_to_use_R.html
